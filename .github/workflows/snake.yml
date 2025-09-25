@@ -1,17 +1,27 @@
 name: Generate Snake Animation
 
+# Give the workflow permission to write repository contents (necessary to push 'output' branch)
+permissions:
+  contents: write
+
 on:
-  schedule: # Run once a day at midnight UTC
+  # Run manually or on a schedule
+  workflow_dispatch:
+  schedule:
     - cron: "0 0 * * *"
-  workflow_dispatch: # Allow manual run
 
 jobs:
   generate:
     runs-on: ubuntu-latest
 
     steps:
-      # Generate the snake files
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Generate snake animation
+        id: snk
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -20,11 +30,45 @@ jobs:
             dist/github-snake-dark.svg?palette=github-dark
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
-      # Push the files to an "output" branch
-      - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Show generated files (debug)
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "Listing root:"
+          ls -la
+          echo "Listing dist/"
+          ls -la dist || echo "dist/ not found"
+          if [ -d dist ]; then file dist/* || true; fi
+
+      - name: Upload dist as artifact (debug)
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          target_branch: output
-          build_dir: dist
+          name: snake-dist
+          path: dist
+
+      - name: Publish generated files to 'output' branch
+        if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -e
+          # configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # copy generated files to a temporary clean repo and push to output
+          TMP_DIR=$(mktemp -d)
+          echo "Copying dist/* to $TMP_DIR"
+          cp -r dist/* "$TMP_DIR/" || true
+          cd "$TMP_DIR"
+
+          git init
+          git add -A
+          git commit -m "Update snake output [ci skip]" || echo "Nothing to commit"
+
+          # push to output branch using token auth
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO}.git"
+          git remote add origin "$REMOTE"
+          git branch -M output
+          git push -f origin output
