@@ -28,7 +28,7 @@
 ###
 
 ## 🐍 Snake eating my contributions
-![snake gif](https://raw.githubusercontent.com/Hitbox-Demo/Hitbox-Demo/output/ocean.gif)
+<!-- ![snake gif](https://raw.githubusercontent.com/Hitbox-Demo/Hitbox-Demo/output/ocean.gif) -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/your-username/your-username/output/github-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/your-username/your-username/output/github-snake.svg">
