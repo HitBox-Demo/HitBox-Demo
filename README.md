@@ -5,9 +5,9 @@
 <div align="center">
   <img src="https://skillicons.dev/icons?i=python" height="60" alt="python logo" />
   <img width="12" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Pygame_logo.svg" height="60" alt="pygame logo" />
+  <img src="./assets/icons/pygame.svg" height="60" alt="pygame" />
   <img width="12" />
-  <img src="https://static-00.iconduck.com/assets.00/tkinter-icon-2048x2048-2vnm3r7w.png" height="60" alt="tkinter logo" />
+  <img src="./assets/icons/tkinter.svg" height="60" alt="tkinter" />
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=java" height="60" alt="java logo" />
   <img width="12" />
@@ -34,7 +34,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/pacman-contribution-graph-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/pacman-contribution-graph.svg">
-  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/pacman-contribution-graph.svg" />
 </picture>
 
 
