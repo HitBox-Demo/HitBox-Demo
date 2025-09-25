@@ -27,8 +27,13 @@
 
 ###
 
+## 🐍 Snake eating my contributions
+![snake gif](https://raw.githubusercontent.com/<your-username>/<your-username>/output/ocean.gif)
 <picture>
-![snake gif](https://raw.githubusercontent.com/your-username/your-username/output/github-contribution-grid-snake.gif)
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/<your-username>/<your-username>/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/<your-username>/<your-username>/output/github-snake.svg">
+  <img alt="snake animation" src="https://raw.githubusercontent.com/<your-username>/<your-username>/output/github-snake.svg">
 </picture>
+
 
 ###
