@@ -5,10 +5,6 @@
 <div align="center">
   <img src="https://skillicons.dev/icons?i=python" height="60" alt="python logo" />
   <img width="12" />
-  <img src="./assets/icons/pygame.svg" height="60" alt="pygame" />
-  <img width="12" />
-  <img src="./assets/icons/tkinter.svg" height="60" alt="tkinter" />
-  <img width="12" />
   <img src="https://skillicons.dev/icons?i=java" height="60" alt="java logo" />
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=javascript" height="60" alt="javascript logo" />
@@ -32,10 +28,7 @@
 ###
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
-  <img alt="github-snake" src="github-snake.svg" />
+![snake gif](https://raw.githubusercontent.com/your-username/your-username/output/github-contribution-grid-snake.gif)
 </picture>
-
 
 ###
